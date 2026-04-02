@@ -25,8 +25,8 @@ export default function About() {
   return (
     <section id="about" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          {/* Left */}
+        <div className="grid md:grid-cols-2 gap-16 items-center mb-16">
+          {/* Left — Text */}
           <div>
             <div className="text-red-500 text-sm font-semibold uppercase tracking-widest mb-4">
               About Us
@@ -65,19 +65,30 @@ export default function About() {
             </a>
           </div>
 
-          {/* Right — Feature cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {features.map((f) => (
-              <div
-                key={f.title}
-                className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:border-red-500/40 transition"
-              >
-                <div className="text-3xl mb-3">{f.icon}</div>
-                <h3 className="text-white font-bold text-base mb-2">{f.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{f.desc}</p>
-              </div>
-            ))}
+          {/* Right — Gym image */}
+          <div className="relative rounded-3xl overflow-hidden h-96 md:h-[480px]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?w=900&q=80"
+              alt="Snap Fitness Gym interior"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           </div>
+        </div>
+
+        {/* Feature cards row below */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {features.map((f) => (
+            <div
+              key={f.title}
+              className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:border-red-500/40 transition"
+            >
+              <div className="text-3xl mb-3">{f.icon}</div>
+              <h3 className="text-white font-bold text-sm mb-2">{f.title}</h3>
+              <p className="text-gray-400 text-xs leading-relaxed">{f.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
