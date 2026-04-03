@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snap Fitness Gym – Pricing Proposal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #fff;
+    color: #1a1a1a;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page { margin: 0; size: A4; }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media screen {
+    .page { box-shadow: 0 4px 24px rgba(0,0,0,0.12); margin: 20px auto; }
+  }
+
+  /* ===== COVER ===== */
+  .cover {
+    background: linear-gradient(145deg, #0f0f0f 0%, #1a1a1a 50%, #111827 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 70px 50px;
+    position: relative;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #f59e0b, #ef4444, #f59e0b);
+  }
+
+  .cover-badge {
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    padding: 7px 22px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #f59e0b;
+    margin-bottom: 36px;
+  }
+
+  .cover h1 {
+    font-size: 46px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #fff 0%, #fde68a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cover-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: #9ca3af;
+    margin-bottom: 48px;
+  }
+
+  .cover-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #f59e0b, #ef4444);
+    border-radius: 2px;
+    margin-bottom: 40px;
+  }
+
+  .cover-total {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 28px 50px;
+    margin-bottom: 40px;
+  }
+
+  .cover-total .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #6b7280;
+    margin-bottom: 8px;
+  }
+
+  .cover-total .amount {
+    font-size: 42px;
+    font-weight: 900;
+    color: #f59e0b;
+  }
+
+  .cover-total .sub {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 4px;
+  }
+
+  .cover-desc {
+    font-size: 14px;
+    color: #9ca3af;
+    max-width: 420px;
+    line-height: 1.8;
+  }
+
+  .cover-footer {
+    position: absolute;
+    bottom: 32px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 11px;
+    color: #374151;
+  }
+
+  /* ===== CONTENT PAGES ===== */
+  .content {
+    padding: 48px 52px;
+    background: #fff;
+  }
+
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #f3f4f6;
+  }
+
+  .page-header-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #f59e0b;
+  }
+
+  .page-header-brand {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111827;
+  }
+
+  h2 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
+  }
+
+  h2 .accent { color: #f59e0b; }
+
+  .section-sub {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 24px;
+  }
+
+  h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+    margin: 22px 0 10px;
+  }
+
+  p {
+    font-size: 13px;
+    color: #374151;
+    line-height: 1.75;
+    margin-bottom: 10px;
+  }
+
+  /* Package Cards */
+  .package-card {
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-bottom: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .package-card.primary {
+    background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+    color: white;
+    border: none;
+  }
+
+  .package-card.secondary {
+    background: #fffbeb;
+    border: 1.5px solid #fde68a;
+  }
+
+  .package-card.tertiary {
+    background: #f9fafb;
+    border: 1.5px solid #e5e7eb;
+  }
+
+  .package-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .package-tag {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 4px 12px;
+    border-radius: 50px;
+  }
+
+  .primary .package-tag {
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+  }
+
+  .secondary .package-tag {
+    background: rgba(245, 158, 11, 0.15);
+    color: #b45309;
+  }
+
+  .tertiary .package-tag {
+    background: #e5e7eb;
+    color: #6b7280;
+  }
+
+  .package-price {
+    text-align: right;
+  }
+
+  .package-price .amount {
+    font-size: 28px;
+    font-weight: 900;
+    display: block;
+  }
+
+  .primary .package-price .amount { color: #f59e0b; }
+  .secondary .package-price .amount { color: #b45309; }
+  .tertiary .package-price .amount { color: #374151; }
+
+  .package-price .period {
+    font-size: 11px;
+    opacity: 0.6;
+  }
+
+  .package-title {
+    font-size: 17px;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+
+  .primary .package-title { color: white; }
+  .secondary .package-title { color: #92400e; }
+  .tertiary .package-title { color: #111827; }
+
+  .package-desc {
+    font-size: 12px;
+    margin-bottom: 0;
+  }
+
+  .primary .package-desc { color: #9ca3af; }
+  .secondary .package-desc { color: #b45309; }
+  .tertiary .package-desc { color: #6b7280; }
+
+  /* Check List */
+  .check-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 14px;
+  }
+
+  .check-list li {
+    padding: 5px 0 5px 24px;
+    position: relative;
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+
+  .primary .check-list li { color: #d1d5db; }
+  .secondary .check-list li { color: #78350f; }
+  .tertiary .check-list li { color: #374151; }
+
+  .check-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    font-size: 13px;
+  }
+
+  .primary .check-list li::before { color: #f59e0b; }
+  .secondary .check-list li::before { color: #d97706; }
+  .tertiary .check-list li::before { color: #6b7280; }
+
+  /* Value Highlight */
+  .value-highlight {
+    background: linear-gradient(135deg, #fffbeb, #fef3c7);
+    border: 1.5px solid #fcd34d;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 12.5px;
+    color: #78350f;
+  }
+
+  .value-highlight strong { color: #92400e; }
+
+  /* Info Box */
+  .info-box {
+    background: #f0fdf4;
+    border-left: 3px solid #22c55e;
+    border-radius: 0 10px 10px 0;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 12.5px;
+    color: #14532d;
+  }
+
+  /* Warning Box */
+  .warning-box {
+    background: #f8fafc;
+    border-left: 3px solid #64748b;
+    border-radius: 0 10px 10px 0;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 12.5px;
+    color: #334155;
+  }
+
+  /* Summary Table */
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 13px;
+  }
+
+  .summary-table th {
+    background: #111827;
+    color: white;
+    padding: 11px 16px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .summary-table th:first-child { border-radius: 8px 0 0 0; }
+  .summary-table th:last-child { border-radius: 0 8px 0 0; text-align: right; }
+
+  .summary-table td {
+    padding: 11px 16px;
+    border-bottom: 1px solid #f3f4f6;
+    color: #374151;
+  }
+
+  .summary-table td:last-child { text-align: right; font-weight: 600; }
+
+  .summary-table tr:nth-child(even) td { background: #f9fafb; }
+
+  .summary-table .total-row td {
+    background: #fffbeb;
+    font-weight: 800;
+    color: #92400e;
+    font-size: 14px;
+  }
+
+  .summary-table .free-row td {
+    color: #059669;
+    font-size: 12px;
+  }
+
+  /* CTA */
+  .cta-box {
+    background: linear-gradient(135deg, #111827, #1f2937);
+    border-radius: 14px;
+    padding: 32px;
+    text-align: center;
+    color: white;
+    margin-top: 22px;
+  }
+
+  .cta-box h3 {
+    color: white;
+    font-size: 19px;
+    margin: 0 0 8px;
+  }
+
+  .cta-box p {
+    color: #9ca3af;
+    font-size: 13px;
+    margin-bottom: 0;
+  }
+
+  .contact-row {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 20px;
+  }
+
+  .contact-item {
+    text-align: center;
+  }
+
+  .contact-item .c-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #6b7280;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .contact-item .c-value {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f59e0b;
+  }
+
+  .page-num {
+    position: absolute;
+    bottom: 28px;
+    right: 52px;
+    font-size: 10px;
+    color: #d1d5db;
+  }
+
+  .divider {
+    height: 1px;
+    background: #f3f4f6;
+    margin: 22px 0;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== PAGE 1: COVER ===== -->
+<div class="page cover">
+  <div class="cover-badge">Official Pricing Proposal</div>
+  <h1>Snap Fitness Gym</h1>
+  <p class="cover-sub">Website Development & Ongoing Support</p>
+
+  <div class="cover-divider"></div>
+
+  <div class="cover-total">
+    <div class="label">One-Time Development</div>
+    <div class="amount">Rs. 32,000</div>
+    <div class="sub">Includes 1 Year Free Domain + Hosting (worth Rs. 9,000)</div>
+  </div>
+
+  <p class="cover-desc">
+    A complete professional website for Snap Fitness Gym, built and ready to attract new members — with ongoing growth support to keep it performing month after month.
+  </p>
+
+  <div class="cover-footer">
+    Prepared by Ahmad Shayan &nbsp;|&nbsp; Ahmasoft &nbsp;|&nbsp; 2026
+  </div>
+</div>
+
+<!-- ===== PAGE 2: MAIN PACKAGE ===== -->
+<div class="page content">
+  <div class="page-header">
+    <span class="page-header-label">Website Development</span>
+    <span class="page-header-brand">Snap Fitness Gym</span>
+  </div>
+
+  <h2>Phase 1: <span class="accent">Complete Website</span></h2>
+  <p class="section-sub">One-time investment. Yours forever.</p>
+
+  <div class="package-card primary">
+    <div class="package-header">
+      <div>
+        <div class="package-tag">One-Time</div>
+        <div class="package-title" style="margin-top: 10px;">Website Development Package</div>
+        <div class="package-desc">Everything you need to go live with a professional gym website</div>
+      </div>
+      <div class="package-price">
+        <span class="amount">Rs. 32,000</span>
+        <span class="period">one-time payment</span>
+      </div>
+    </div>
+    <ul class="check-list">
+      <li>Custom gym website — fully designed and mobile-friendly</li>
+      <li>Services, membership plans & pricing pages</li>
+      <li>Contact form + Google Maps integration</li>
+      <li>Photo gallery & transformation showcase section</li>
+      <li>Social media links + WhatsApp/call button</li>
+      <li>Basic SEO setup — so people find you on Google</li>
+      <li>Fast loading speed, tested across all devices</li>
+      <li><strong style="color: #f59e0b;">1 Year Free Domain</strong> (worth Rs. 3,500)</li>
+      <li><strong style="color: #f59e0b;">1 Year Free Hosting</strong> (worth Rs. 5,500)</li>
+    </ul>
+  </div>
+
+  <div class="value-highlight">
+    <strong>You're getting Rs. 9,000 worth of domain + hosting completely free.</strong> So in real terms, you're paying just Rs. 23,000 for a fully custom, professional gym website. That's less than what most agencies charge for a basic template.
+  </div>
+
+  <div class="info-box">
+    <strong>Why does this matter?</strong> Your gym's first impression is now online. People search for gyms near them before they ever walk through your door. A professional website means more walk-ins, more sign-ups, and a gym that looks serious — because it is.
+  </div>
+
+  <span class="page-num">2</span>
+</div>
+
+<!-- ===== PAGE 3: ONGOING PLANS ===== -->
+<div class="page content">
+  <div class="page-header">
+    <span class="page-header-label">Ongoing Support Plans</span>
+    <span class="page-header-brand">Snap Fitness Gym</span>
+  </div>
+
+  <h2>Phase 2 & 3: <span class="accent">Keep Growing</span></h2>
+  <p class="section-sub">A website without maintenance goes stale. These plans keep it working for you every month.</p>
+
+  <div class="package-card secondary">
+    <div class="package-header">
+      <div>
+        <div class="package-tag">First 6 Months</div>
+        <div class="package-title" style="margin-top: 10px;">Growth & Optimization Plan</div>
+        <div class="package-desc">Active improvements to grow your visibility and attract more members</div>
+      </div>
+      <div class="package-price">
+        <span class="amount">Rs. 6,000</span>
+        <span class="period">per month</span>
+      </div>
+    </div>
+    <ul class="check-list">
+      <li>Monthly SEO improvements — rank higher when people search "gym near me"</li>
+      <li>Content updates — new offers, seasonal promotions, announcements</li>
+      <li>Google Business Profile optimization (more Google Map visibility)</li>
+      <li>WhatsApp & call button performance tracking</li>
+      <li>Monthly website performance report</li>
+      <li>Any small text, image, or layout changes you need</li>
+    </ul>
+  </div>
+
+  <div class="package-card tertiary">
+    <div class="package-header">
+      <div>
+        <div class="package-tag">After 6 Months</div>
+        <div class="package-title" style="margin-top: 10px;">Standard Maintenance Plan</div>
+        <div class="package-desc">Keep your website healthy, updated, and running smoothly</div>
+      </div>
+      <div class="package-price">
+        <span class="amount">Rs. 4,500</span>
+        <span class="period">per month</span>
+      </div>
+    </div>
+    <ul class="check-list">
+      <li>Content updates as needed (text, images, pricing)</li>
+      <li>Minor design adjustments and fixes</li>
+      <li>Speed & security monitoring</li>
+      <li>Platform and dependency updates</li>
+      <li>Ongoing technical support</li>
+    </ul>
+  </div>
+
+  <div class="warning-box">
+    <strong>Major Upgrades — Separate Discussion:</strong> Features like an AI chatbot, online appointment/class booking, AI receptionist, payment gateway integration, or a full member portal are larger projects. These are handled as separate milestones with their own scope and budget — no surprises, no hidden charges.
+  </div>
+
+  <span class="page-num">3</span>
+</div>
+
+<!-- ===== PAGE 4: SUMMARY & CTA ===== -->
+<div class="page content">
+  <div class="page-header">
+    <span class="page-header-label">Summary & Next Steps</span>
+    <span class="page-header-brand">Snap Fitness Gym</span>
+  </div>
+
+  <h2>Complete <span class="accent">Pricing Summary</span></h2>
+  <p class="section-sub">Simple. Transparent. No hidden costs.</p>
+
+  <table class="summary-table">
+    <tr>
+      <th>What You Get</th>
+      <th>When</th>
+      <th style="text-align:right;">Price</th>
+    </tr>
+    <tr>
+      <td><strong>Website Development</strong> — full custom site</td>
+      <td>One-time</td>
+      <td>Rs. 32,000</td>
+    </tr>
+    <tr class="free-row">
+      <td>&nbsp;&nbsp;&nbsp;↳ 1 Year Free Domain included</td>
+      <td>Included</td>
+      <td>Rs. 0 (worth 3,500)</td>
+    </tr>
+    <tr class="free-row">
+      <td>&nbsp;&nbsp;&nbsp;↳ 1 Year Free Hosting included</td>
+      <td>Included</td>
+      <td>Rs. 0 (worth 5,500)</td>
+    </tr>
+    <tr>
+      <td><strong>Growth & Optimization Plan</strong></td>
+      <td>Months 1–6</td>
+      <td>Rs. 6,000/mo</td>
+    </tr>
+    <tr>
+      <td><strong>Standard Maintenance Plan</strong></td>
+      <td>Month 7 onwards</td>
+      <td>Rs. 4,500/mo</td>
+    </tr>
+    <tr class="total-row">
+      <td><strong>Total Free Value Included</strong></td>
+      <td></td>
+      <td>Rs. 9,000</td>
+    </tr>
+  </table>
+
+  <div class="value-highlight" style="margin-top: 18px;">
+    <strong>Year 1 total if you take everything:</strong> Rs. 32,000 (site) + Rs. 36,000 (6 months growth) + Rs. 27,000 (6 months maintenance) = <strong>Rs. 95,000</strong> — for a website, a full year of SEO growth, content management, and technical support. That's less than what a single billboard advertisement costs, and this works for you 24/7.
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="cta-box">
+    <h3>Ready to Put Snap Fitness on the Map?</h3>
+    <p>Let's get your website live and start bringing in new members.</p>
+    <div class="contact-row">
+      <div class="contact-item">
+        <span class="c-label">Name</span>
+        <span class="c-value">Ahmad Shayan</span>
+      </div>
+      <div class="contact-item">
+        <span class="c-label">WhatsApp</span>
+        <span class="c-value">+92 304 728 0822</span>
+      </div>
+      <div class="contact-item">
+        <span class="c-label">Agency</span>
+        <span class="c-value">Ahmasoft</span>
+      </div>
+    </div>
+  </div>
+
+  <p style="text-align:center; font-size:11px; color:#d1d5db; margin-top:18px;">
+    This proposal is valid for 14 days. Prices are in Pakistani Rupees (PKR). Major feature upgrades are scoped separately.
+  </p>
+
+  <span class="page-num">4</span>
+</div>
+
+</body>
+</html>
